@@ -6,11 +6,14 @@ public class Encrypter {
         String[] charHold = new String[4];
         StringBuilder encryptedData = new StringBuilder();
 
+        // Fills an array with digits from the converted string
+        // Performs calculations on these digits
         for(i = 0; i < 4; i++){
             digits[i] = Integer.parseInt(String.valueOf(data.charAt(i)));
             digits[i] = (digits[i] + 7) % 10;
         }
 
+        // Swaps digits
         temp = digits[0];
         digits[0] = digits[2];
         digits[2] = temp;
@@ -19,6 +22,8 @@ public class Encrypter {
         digits[1] = digits[3];
         digits[3] = temp;
 
+        // Converts digits back to strings and
+        // Concatenates them back together
         for(i = 0; i < 4; i++){
             charHold[i] = Integer.toString(digits[i]);
             encryptedData.append(charHold[i]);

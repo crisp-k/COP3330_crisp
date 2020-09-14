@@ -6,6 +6,8 @@ public class Decrypter {
         StringBuilder decryptedData = new StringBuilder();
         String[] charHold = new String[4];
 
+        // Converts string character to ints and stores them in digits
+        // Performs a check to undo changes made by encrypter
         for(i = 0; i < 4; i++){
             digits[i] = Integer.parseInt(String.valueOf(data.charAt(i)));
             if(digits[i] >= 7){
@@ -16,6 +18,7 @@ public class Decrypter {
             }
         }
 
+        // Performs digit swap
         temp = digits[0];
         digits[0] = digits[2];
         digits[2] = temp;
@@ -24,6 +27,8 @@ public class Decrypter {
         digits[1] = digits[3];
         digits[3] = temp;
 
+        // Converts ints back to strings
+        // and concatenates them into a single string
         for(i = 0; i < 4; i++){
             charHold[i] = Integer.toString(digits[i]);
             decryptedData.append(charHold[i]);
