@@ -1,6 +1,6 @@
 public class Application {
     public static void main(String[] args){
-        String data = "3425";
+        String data = "1234";
 
         System.out.printf("Data before Encryption: %s\n", data);
 

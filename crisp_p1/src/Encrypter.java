@@ -1,33 +1,20 @@
 public class Encrypter {
 
     public static String encrypt(String data){
-        int i, temp;
         int[] digits = new int[4];
         String[] charHold = new String[4];
         StringBuilder encryptedData = new StringBuilder();
 
         // Fills an array with digits from the converted string
         // Performs calculations on these digits
-        for(i = 0; i < 4; i++){
-            digits[i] = Integer.parseInt(String.valueOf(data.charAt(i)));
-            digits[i] = (digits[i] + 7) % 10;
-        }
+        convertToDigitArray(data, digits);
 
         // Swaps digits
-        temp = digits[0];
-        digits[0] = digits[2];
-        digits[2] = temp;
-
-        temp = digits[1];
-        digits[1] = digits[3];
-        digits[3] = temp;
+        digitSwap(digits);
 
         // Converts digits back to strings and
         // Concatenates them back together
-        for(i = 0; i < 4; i++){
-            charHold[i] = Integer.toString(digits[i]);
-            encryptedData.append(charHold[i]);
-        }
+        covertToDigitString(digits, charHold, encryptedData);
 
 /*          // A better way was found
         digit1 = Integer.parseInt(String.valueOf(data.charAt(0)));
@@ -40,6 +27,33 @@ public class Encrypter {
 */
 
         return encryptedData.toString();
+    }
+
+    public static void covertToDigitString(int[] digits, String[] charHold, StringBuilder encryptedData) {
+        int i;
+        for(i = 0; i < 4; i++){
+            charHold[i] = Integer.toString(digits[i]);
+            encryptedData.append(charHold[i]);
+        }
+    }
+
+    public static void digitSwap(int[] digits) {
+        int temp;
+        temp = digits[0];
+        digits[0] = digits[2];
+        digits[2] = temp;
+
+        temp = digits[1];
+        digits[1] = digits[3];
+        digits[3] = temp;
+    }
+
+    public static void convertToDigitArray(String data, int[] digits) {
+        int i;
+        for(i = 0; i < 4; i++){
+            digits[i] = Integer.parseInt(String.valueOf(data.charAt(i)));
+            digits[i] = (digits[i] + 7) % 10;
+        }
     }
 
 /*      // Java only passes variables by value :(
