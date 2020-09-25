@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class BodyMassIndex {
     private double inches;
     private double pounds;
@@ -10,7 +12,8 @@ public class BodyMassIndex {
     public double calculateBmiScore(){
         double bmiScore = 703 * this.pounds / Math.pow(this.inches, 2);
 
-        return bmiScore;
+        double roundedBmi = Math.round(bmiScore * 10.0) / 10.0;
+        return roundedBmi;
     }
 
     public int calculateBmiCategory(double bmiScore){
