@@ -23,6 +23,8 @@ public class App {
         Scanner input = new Scanner(System.in);
         String userInput = input.next();
 
+        // Checks user's response, makes response non-case sensitive
+        // Throws error if undesired input is given
         if(userInput.toUpperCase().equals("Y")){
             return true;
         }
@@ -40,13 +42,14 @@ public class App {
         Scanner input = new Scanner(System.in);
         double userInput;
 
+        // Will continuously loop unless user inputs a valid value
         do{
             userInput = input.nextDouble();
 
             if(userInput < 0) {
                 System.out.println("Error! Invalid input, please enter a positive value.");
             }
-        }while(userInput < 0);
+        }while(userInput < 0);          // Since this loop is contingent upon valid input, error handling is not needed
 
         return userInput;
     }
@@ -56,6 +59,7 @@ public class App {
         Scanner input = new Scanner(System.in);
         double userInput;
 
+        // Will continuously loop unless user inputs a valid value
         do{
             userInput = input.nextDouble();
 
@@ -67,6 +71,8 @@ public class App {
         return userInput;
     }
 
+    // Calculates and displays bmiScore
+    // Displays category depending on return from BmiCategory calculation
     public static void displayBmiInfo(BodyMassIndex bmi){
         double bmiScore = bmi.calculateBmiScore();
         int bmiCategory = bmi.calculateBmiCategory(bmiScore);
@@ -77,17 +83,17 @@ public class App {
             case 3 -> System.out.printf("Bmi: %.1f Category: Overweight = 25–29.9\n", bmiScore);
             case 4 -> System.out.printf("Bmi: %.1f Category: Obesity >= 30\n", bmiScore);
         }
-
     }
 
+    // Prints average of all bmi entered by user
     public static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData){
-        System.out.printf("Total average of Bmi's entered: %.1f\n", calculateBmiAverage(bmiData));
+        System.out.printf("Total average of Bmi entered: %.1f\n", calculateBmiAverage(bmiData));
     }
-
+    
     public static double calculateBmiAverage(ArrayList<BodyMassIndex> bmiData) {
         double average, total = 0;
         for (BodyMassIndex bmiDatum : bmiData) {
-            total += bmiDatum.calculateBmiScore();
+            total += bmiDatum.getBmiScore();
         }
 
         average = total / bmiData.size();
