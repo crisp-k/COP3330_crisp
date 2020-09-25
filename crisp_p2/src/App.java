@@ -43,14 +43,12 @@ public class App {
         do{
             userInput = input.nextDouble();
 
-            if(userInput < 1) {
-                System.out.println("Error! Invalid height");
-                userInput = -1;
+            if(userInput < 0) {
+                System.out.println("Error! Invalid input, please enter a positive value.");
             }
-        }while(userInput == -1);
+        }while(userInput < 0);
 
         return userInput;
-
     }
 
     public static double getUserWeight(){
@@ -61,11 +59,10 @@ public class App {
         do{
             userInput = input.nextDouble();
 
-            if(userInput < 1) {
-                System.out.println("Error! Invalid weight");
-                userInput = -1;
+            if(userInput < 0) {
+                System.out.println("Error! Invalid input, please enter a positive value.");
             }
-        }while(userInput == -1);
+        }while(userInput < 0);
 
         return userInput;
     }
