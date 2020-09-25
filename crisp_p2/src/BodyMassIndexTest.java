@@ -44,4 +44,12 @@ public class BodyMassIndexTest {
         assertEquals(bmiScore, 23.4);
     }
 
+    @Test
+    public void testBmiScoreRetrieval() {
+        BodyMassIndex bmi = new BodyMassIndex(68, 154);
+        double bmiScore = bmi.calculateBmiScore();
+
+        assertEquals(bmi.getBmiScore(), bmiScore);
+    }
+
 }
