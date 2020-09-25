@@ -1,4 +1,3 @@
-import java.math.BigDecimal;
 
 public class BodyMassIndex {
     private double inches;
@@ -16,6 +15,7 @@ public class BodyMassIndex {
     public double calculateBmiScore(){
         double bmiScore = 703 * this.pounds / Math.pow(this.inches, 2);
 
+        // Rounds bmiScore to the first decimal place
         double roundedBmi = Math.round(bmiScore * 10.0) / 10.0;
         this.bmiScore = roundedBmi;
 
@@ -25,6 +25,9 @@ public class BodyMassIndex {
     public double getBmiScore() {
         return bmiScore;
     }
+
+    // Uses ints to represent Bmi category and returns/stores int
+    // based on bmi ranges for each category
     public int calculateBmiCategory(double bmiScore){
         if(bmiScore < 18.5){
             this.bmiCategory = 1;
