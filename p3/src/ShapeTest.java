@@ -56,4 +56,36 @@ class ShapeTest {
         Shape2D shape = new Circle(0.5);
         assertEquals(0.79, shape.getArea(), 0.01);
     }
+
+    @Test
+    public void testCubeName(){
+        Shape shape = new Cube(100);
+        assertEquals("cube", shape.getName());
+    }
+
+    @Test
+    public void testCubeArea(){
+        Shape3D shape = new Cube(10);
+        assertEquals(600, shape.getArea());
+    }
+
+    @Test
+    public void testCubeArea2(){
+        Shape shape = new Cube(0.5);
+        assertEquals(1.5, shape.getArea());
+    }
+
+    @Test
+    public void testCubeVolume(){
+        Shape3D shape = new Cube(10);
+        assertEquals(1000, shape.getVolume());
+    }
+
+    @Test
+    public void testCubeVolume2(){
+        Shape3D shape = new Cube(0.5);
+        assertEquals(0.13, shape.getVolume(), 0.01);
+    }
+
+
 }
