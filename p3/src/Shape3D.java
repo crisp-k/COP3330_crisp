@@ -8,10 +8,10 @@ abstract class Shape3D extends Shape{
         this.width = width;
     }
 
-    public Shape3D(double width, double height, double length){
+    public Shape3D(double length, double width, double height){
+        this.length = length;
         this.width = width;
         this.height = height;
-        this.length = length;
     }
 
     abstract double getVolume();

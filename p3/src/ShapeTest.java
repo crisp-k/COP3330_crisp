@@ -87,5 +87,35 @@ class ShapeTest {
         assertEquals(0.13, shape.getVolume(), 0.01);
     }
 
+    @Test
+    public void testPyramidName(){
+        Shape shape = new Pyramid(10, 10, 10);
+        assertEquals("pyramid", shape.getName());
+    }
 
+    @Test
+    public void testPyramidArea(){
+        Shape3D shape = new Pyramid(10, 10, 10);
+        assertEquals(323.61, shape.getArea(), 0.01);
+    }
+
+    @Test
+    public void testPyramidArea2(){
+        Shape3D shape = new Pyramid(5, 10, 15);
+        assertEquals(281.13, shape.getArea(), 0.01);
+    }
+
+    @Test
+    public void testPyramidVolume(){
+        Shape3D shape = new Pyramid(10, 10, 10);
+        assertEquals(333.33, shape.getVolume(), 0.01);
+    }
+
+    @Test
+    public void testPyramidVolume2(){
+        Shape3D shape = new Pyramid(1.5, 0.5, 2.5);
+        assertEquals(0.63, shape.getVolume(), 0.01);
+    }
+
+    
 }
