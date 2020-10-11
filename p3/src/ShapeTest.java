@@ -117,5 +117,33 @@ class ShapeTest {
         assertEquals(0.63, shape.getVolume(), 0.01);
     }
 
-    
+    @Test
+    public void testSphereName(){
+        Shape shape = new Sphere(10);
+        assertEquals("sphere", shape.getName());
+    }
+
+    @Test
+    public void testSphereArea(){
+        Shape3D shape = new Sphere(10);
+        assertEquals(1256.64, shape.getArea(), 0.01);
+    }
+
+    @Test
+    public void testSphereArea2(){
+        Shape3D shape = new Sphere(0.75);
+        assertEquals(7.07, shape.getArea(), 0.01);
+    }
+
+    @Test
+    public void testSphereVolume(){
+        Shape3D shape = new Sphere(10);
+        assertEquals(4188.79, shape.getVolume(), 0.01);
+    }
+
+    @Test
+    public void testSphereVolume2(){
+        Shape3D shape = new Sphere(0.6);
+        assertEquals(0.9, shape.getVolume(), 0.1);
+    }
 }
