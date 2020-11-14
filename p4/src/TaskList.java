@@ -1,0 +1,55 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TaskList {
+    List<TaskItem> tasks;
+
+    public TaskList(){
+        tasks = new ArrayList<>();
+    }
+
+    public void add(TaskItem item){
+        tasks.add(item);
+    }
+
+    public void remove(int index){
+
+        tasks.remove(index);
+    }
+
+    public void editTaskItem(int index, String title, String date, String description){
+
+        if(title.length() != 0)
+            tasks.get(index).setTitle(title);
+
+        if(date.length() != 0){
+            LocalDate formattedDate = LocalDate.parse(date);
+            tasks.get(index).setDate(formattedDate.toString());
+        }
+
+        if(description.length() != 0)
+            tasks.get(index).setDescription(description);
+    }
+
+    public void changeStatus(int index, Boolean status){
+        tasks.get(index).setStatus(status);
+    }
+
+    public Boolean getCompleteStatus(int index){
+        return tasks.get(index).getStatus();
+    }
+
+    public int getListSize(){
+        return tasks.size();
+    }
+
+    public TaskItem getTaskItem(int index){
+        return tasks.get(index);
+    }
+
+    public boolean checkIfEmpty(){
+        return tasks.isEmpty();
+    }
+
+}
