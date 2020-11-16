@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class TaskItem {
     private String title;
     private String description;
@@ -9,9 +11,14 @@ public class TaskItem {
             throw new IllegalArgumentException();
         }
         this.title = title;
-        this.date = date;
+
+        LocalDate dateToParse = LocalDate.parse(date);
+        this.date = dateToParse.toString();
+
         this.description = description;
-        this.status = false;
+
+        if(this.date == date)
+            this.status = false;
     }
 
     public TaskItem(){
@@ -23,7 +30,7 @@ public class TaskItem {
     }
 
     public void setTitle(String title) {
-        if(title.length() == 0) {
+        if(title.length() <= 0) {
             throw new IllegalArgumentException();
         }
         this.title = title;
@@ -42,8 +49,9 @@ public class TaskItem {
     }
 
     public void setDate(String date) {
+        LocalDate dateToParse = LocalDate.parse(date);
 
-        this.date = date;
+        this.date = dateToParse.toString();
     }
 
     public void setStatus(Boolean status){
@@ -53,6 +61,4 @@ public class TaskItem {
     public Boolean getStatus(){
         return this.status;
     }
-
-
 }

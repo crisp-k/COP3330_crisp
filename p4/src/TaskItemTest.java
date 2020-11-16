@@ -9,7 +9,8 @@ public class TaskItemTest {
 
     @Test
     public void createTaskItemFailsWithInvalidDueDate(){
-        assertThrows(DateTimeException.class, () ->LocalDate.parse("2020-131-224"));
+
+        assertThrows(DateTimeException.class, () ->new TaskItem("Task", "", ""));
     }
 
     @Test

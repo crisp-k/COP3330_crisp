@@ -14,22 +14,18 @@ public class TaskList {
     }
 
     public void remove(int index){
-
         tasks.remove(index);
     }
 
     public void editTaskItem(int index, String title, String date, String description){
 
-        if(title.length() != 0)
-            tasks.get(index).setTitle(title);
 
-        if(date.length() != 0){
-            LocalDate formattedDate = LocalDate.parse(date);
-            tasks.get(index).setDate(formattedDate.toString());
-        }
+        tasks.get(index).setTitle(title);
 
-        if(description.length() != 0)
-            tasks.get(index).setDescription(description);
+        LocalDate formattedDate = LocalDate.parse(date);
+        tasks.get(index).setDate(formattedDate.toString());
+
+        tasks.get(index).setDescription(description);
     }
 
     public void changeStatus(int index, Boolean status){
